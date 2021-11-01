@@ -25,14 +25,19 @@ function doFOUR () {
 function doSomething (num: number) {
     if (num == 1) {
         doONE()
+        soundExpression.giggle.playUntilDone()
     } else if (num == 2) {
         doTWO()
+        soundExpression.happy.playUntilDone()
     } else if (num == 3) {
         doTHREE()
+        soundExpression.hello.playUntilDone()
     } else if (num == 4) {
         doFOUR()
+        music.playMelody("C5 G B A F A C5 B ", 120)
     } else if (num == 5) {
         doFIVE()
+        music.playMelody("G B A G C5 B A B ", 200)
     } else {
         strip.clear()
     }
