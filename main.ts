@@ -23,16 +23,18 @@ function doFOUR () {
     strip.setMatrixColor(1, 0, neopixel.colors(NeoPixelColors.Orange))
 }
 function doSomething (num: number) {
-    if (num == 0) {
+    if (num == 1) {
         doONE()
-    } else if (num == 1) {
-        doTWO()
     } else if (num == 2) {
-        doTHREE()
+        doTWO()
     } else if (num == 3) {
+        doTHREE()
+    } else if (num == 4) {
         doFOUR()
-    } else {
+    } else if (num == 5) {
         doFIVE()
+    } else {
+        strip.clear()
     }
 }
 function doTHREE () {
@@ -68,18 +70,17 @@ function doONE () {
     strip.setMatrixColor(2, 3, neopixel.colors(NeoPixelColors.Orange))
     strip.setMatrixColor(2, 4, neopixel.colors(NeoPixelColors.Orange))
 }
-let xval = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P13, 25, NeoPixelMode.RGB)
 huskylens.initI2c()
 huskylens.initMode(protocolAlgorithm.ALGORITHM_TAG_RECOGNITION)
+strip.setMatrixWidth(5)
+strip.setBrightness(5)
 basic.forever(function () {
     strip.clear()
-    strip.setMatrixWidth(5)
-    strip.setBrightness(5)
-    doSomething(xval % 5)
+    huskylens.request()
+    doSomething(huskylens.readBox_s(Content3.ID))
     // strip.rotate(1)
     strip.show()
     basic.pause(500)
-    xval += 1
 })
