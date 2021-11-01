@@ -71,6 +71,8 @@ function doONE () {
 let xval = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P13, 25, NeoPixelMode.RGB)
+huskylens.initI2c()
+huskylens.initMode(protocolAlgorithm.ALGORITHM_TAG_RECOGNITION)
 basic.forever(function () {
     strip.clear()
     strip.setMatrixWidth(5)
