@@ -80,7 +80,7 @@ strip = neopixel.create(DigitalPin.P13, 25, NeoPixelMode.RGB)
 huskylens.initI2c()
 huskylens.initMode(protocolAlgorithm.ALGORITHM_TAG_RECOGNITION)
 strip.setMatrixWidth(5)
-strip.setBrightness(5)
+strip.setBrightness(30)
 basic.forever(function () {
     strip.clear()
     huskylens.request()
