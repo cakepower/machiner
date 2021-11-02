@@ -30,11 +30,9 @@ function doSomething (num: number) {
     } else if (num == 3) {
         strip.showColor(neopixel.colors(NeoPixelColors.Blue))
     } else if (num == 4) {
-        doFOUR()
-        music.playMelody("C5 G B A F A C5 B ", 120)
+        strip.showColor(neopixel.colors(NeoPixelColors.Violet))
     } else if (num == 5) {
-        doFIVE()
-        music.playMelody("G B A G C5 B A B ", 200)
+        strip.showColor(neopixel.colors(NeoPixelColors.White))
     } else {
         strip.clear()
     }
