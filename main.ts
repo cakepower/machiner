@@ -24,25 +24,11 @@ function doFOUR () {
 }
 function doSomething (num: number) {
     if (num == 1) {
-        doONE()
-        soundExpression.giggle.playUntilDone()
-        pins.servoWritePin(AnalogPin.P3, 0)
-        basic.pause(2000)
-        pins.servoWritePin(AnalogPin.P3, 91)
+        strip.showColor(neopixel.colors(NeoPixelColors.Red))
     } else if (num == 2) {
-        doTWO()
-        soundExpression.happy.playUntilDone()
-        pins.servoWritePin(AnalogPin.P4, 180)
-        basic.pause(2000)
-        pins.servoWritePin(AnalogPin.P4, 89)
+        strip.showColor(neopixel.colors(NeoPixelColors.Orange))
     } else if (num == 3) {
-        doTHREE()
-        soundExpression.hello.playUntilDone()
-        pins.servoWritePin(AnalogPin.P3, 0)
-        pins.servoWritePin(AnalogPin.P4, 180)
-        basic.pause(2000)
-        pins.servoWritePin(AnalogPin.P3, 91)
-        pins.servoWritePin(AnalogPin.P4, 89)
+        strip.showColor(neopixel.colors(NeoPixelColors.Blue))
     } else if (num == 4) {
         doFOUR()
         music.playMelody("C5 G B A F A C5 B ", 120)
@@ -87,7 +73,7 @@ function doONE () {
     strip.setMatrixColor(2, 4, neopixel.colors(NeoPixelColors.Orange))
 }
 let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P13, 25, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P13, 8, NeoPixelMode.RGB)
 huskylens.initI2c()
 huskylens.initMode(protocolAlgorithm.ALGORITHM_TAG_RECOGNITION)
 strip.setMatrixWidth(5)
